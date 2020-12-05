@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script> 
+        window.onload = function() {
+         var drawingCanvas = document.getElementById('smile');
+         if(drawingCanvas && drawingCanvas.getContext) {
+          var context = drawingCanvas.getContext('2d');
+          // Рисуем окружность 
+          context.strokeStyle = "#000";
+          context.fillStyle = "#fc0";
+          context.beginPath();
+          context.arc(100,100,50,0,Math.PI*2,true);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          // Рисуем левый глаз 
+          context.fillStyle = "#fff";
+          context.beginPath();
+          context.arc(84,90,8,0,Math.PI*2,true);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          // Рисуем правый глаз 
+          context.beginPath();
+          context.arc(116,90,8,0,Math.PI*2,true);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          // Рисуем рот
+          context.beginPath();
+          context.moveTo(70,115);
+          context.quadraticCurveTo(100,130,130,115);
+          context.quadraticCurveTo(100,150,70,115); 
+          context.closePath();
+          context.stroke();
+          context.fill();
+         }
+        }
+       </script>
+</head>
+<body>
+    <canvas id="myCanvas_1" width="200" height="100" style="border:1px solid #000000;">]</canvas>
+    <canvas id="myCanvas_2" width="200" height="100" style="border:1px solid #000000;">]</canvas>
+    <canvas id="myCanvas_3" width="200" height="100" style="border:1px solid #000000;">]</canvas>
+    <canvas id="myCanvas_4" width="200" height="100" style="border:1px solid #000000;">]</canvas>
+    <canvas id="myCanvas_5" width="200" height="100" style="border:1px solid #000000;">]</canvas>
+    <br>
+    <canvas id="myCanvas_6" width="250" height="250" style="border:1px solid #000000;">]</canvas>
+    
+    <img id="scream" width="220" height="277" src="../Prezentacia_JS/images.png" alt="The Scream">
+    
+    <canvas id="smile" width="200" height="200"></canvas>
+    
+    <p><button onclick="myCanvas()">Try it</button></p>
+
+    <script>
+        var c = document.getElementById("myCanvas_2");
+        var ctx = c.getContext("2d");
+        ctx.moveTo(0,0);
+        ctx.lineTo(200,100);
+        ctx.stroke();
+    </script>
+
+    <script>
+        var c = document.getElementById("myCanvas_3");
+        var ctx = c.getContext("2d");
+        ctx.beginPath();
+        ctx.arc(95,50,40,0,2*Math.PI);
+        ctx.stroke();
+    </script>
+
+    <script>
+        var c = document.getElementById("myCanvas_4");
+        var ctx = c.getContext("2d");
+        ctx.font = "30px Arial";
+        ctx.strokeText("Hello World",10,50);
+        //ctx.fillText("Hello World",10,50);
+    </script>
+
+    <script>
+        var c = document.getElementById("myCanvas_5");
+        var ctx = c.getContext("2d");
+        // Create gradient
+        var grd = ctx.createLinearGradient(0,0,200,0);
+        grd.addColorStop(0,"red");
+        grd.addColorStop(1,"white");
+        // Fill with gradient
+        ctx.fillStyle = grd;
+        ctx.fillRect(10,10,150,80);
+    </script>
+
+    <script>
+        function myCanvas() {
+        var c = document.getElementById("myCanvas_6");
+        var ctx = c.getContext("2d");
+        var img = document.getElementById("scream");
+        ctx.drawImage(img,10,10);
+        }
+    </script>
+
+</body>
+</html>
